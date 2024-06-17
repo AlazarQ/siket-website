@@ -391,6 +391,48 @@
     <!--end header-->
     <!-- Navbar End -->
     @yield('body')
+    <div class="container">
+        <div class="row align-items-center py-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-start">
+                <div class="title-heading">
+                    <h1 class="heading mb-4 text-center">Subscribe to Our Newsletter
+                    </h1>
+                    @if(\Session::has('exist'))
+
+                    <div class="col-12 mb-3">
+                        <div class="alert alert-info" role="alert">
+                            <p class="text-center">You have already subscribed to our newsletter.
+                            </p>
+                     </div>
+                    </div>
+
+                    @endif
+                    @if(\Session::has('status'))
+
+                    <div class="col-12 mb-3">
+                        <div class="alert alert-success" role="alert">
+                            <p class="text-center">Thank you for subscribing!
+                            </p>
+                     </div>
+                    </div>
+
+                    @endif
+                    <div class="subcribe-form mt-4 pt-2 col-lg-6 col-12 mt-4 pt-2 mx-auto">
+                        <form class="ms-0" method="POST" action="/subscription">
+                            @csrf
+                            <input type="email" id="email2" name="email" class="rounded-pill bg-white-50 border"
+                                placeholder="Your Email :" required>
+                            <button type="submit" class="btn rounded-pill btn-primary">Subscribe</button>
+                        </form>
+
+                    </div>
+                    <!-- end form -->
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
     <!-- Footer Start -->
     <footer class="footer bg-dark">
       <div class="container">

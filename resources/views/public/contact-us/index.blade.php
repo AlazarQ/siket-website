@@ -82,10 +82,20 @@
                 <div class="card shadow rounded border-0 p-2">
                     <div class="card-body">
                         <div class="primary-form mt-3">
-                            <form method="post" id="myForm" name="myForm contact-us-form" onsubmit="return validateForm()">
+                            <form method="post" id="myForm" name="myForm contact-us-form" action="/contact-us">
+                                @csrf
                                 <p class="mb-0" id="error-msg"></p>
                                 <div id="simple-msg"></div>
                                 <div class="row">
+                                    @if(\Session::has('status'))
+                                    <div class="col-12 mb-3">
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="">Your message has been successfully received. Our team will review it and get back to you shortly.
+                                            </h4>
+                                     </div>
+                                    </div>
+                                    <hr>
+                                    @endif
                                     <div class="col-12 mb-3">
                                         <h4 class="">Drop us a message</h4>
 
@@ -96,8 +106,11 @@
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-account icon-sm icons"></i>
                                             <input name="name" id="name" type="text" class="form-control ps-5 fs-6"
-                                                placeholder="Name :">
+                                                placeholder="Name :" required>
                                         </div>
+                                        @error('name')
+                                        <div class="input-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-6">
@@ -107,9 +120,11 @@
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-email-outline icon-sm icons"></i>
                                             <input name="email" id="email" type="email"
-                                                class="form-control ps-5 fs-6" placeholder="Email :">
+                                                class="form-control ps-5 fs-6" placeholder="Email :" required>
                                         </div>
-
+                                        @error('email')
+                                        <div class="input-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <!--end col-->
 
@@ -118,8 +133,11 @@
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-book-outline icon-sm icons"></i>
                                             <input name="subject" id="subject" class="form-control ps-5 fs-6 py-2"
-                                                placeholder="subject :">
+                                                placeholder="subject :" required>
                                         </div>
+                                        @error('subject')
+                                        <div class="input-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <!--end col-->
 
@@ -128,9 +146,12 @@
                                                 class="text-danger">*</span></label>
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-message-outline icon-sm icons"></i>
-                                            <textarea name="comments" id="comments" rows="4"
-                                                class="form-control ps-5 fs-6" placeholder="Message :"></textarea>
+                                            <textarea name="message" id="message" rows="4"
+                                                class="form-control ps-5 fs-6" placeholder="Message :" required></textarea>
                                         </div>
+                                        @error('message')
+                                        <div class="input-error">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!-- end row -->

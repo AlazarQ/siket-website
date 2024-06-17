@@ -3378,7 +3378,10 @@
     display: none;
     color: #dc3545
   }
-
+  .input-error {
+    margin: 8px 0px;
+    color: #dc3545
+  }
   #ajaxsuccess {
     width: 100%;
     display: none;

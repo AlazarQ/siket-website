@@ -1,149 +1,67 @@
 @extends('layouts._public');
 @section('body')
+    <!-- Start Home -->
+    <section class="bg-default page-next-level" style="background: url(images/bg/bg-page.png) center no-repeat;margin-top: 50px;">
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <div class="text-center">
+                                <h3 class="title-pager mb-0"> {{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} Exchange Rate </h3>
+                            </div>
+                            <ul class="page-next text-center mt-4 pt-2">
+                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li>
+                                    <span class="text-primary fs-6">Exchange Rate</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--end col-->
+
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end container-->
+            </div>
+        </div>
+    </section>
+    <!--end section-->
     <!-- Feature START -->
     <section class="section bg-light" id="features" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-10">
-              <div class="section-title text-center mb-4 pb-2">
-                <h4 class="title mb-4">April 24,2024 Exchange Rate</h4>
-              </div>
-            </div>
-          </div>
+            <table class="table table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Buying</th>
+                    <th scope="col">Selling</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($exchangeRates as $exchangeRate )
 
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="icons text-center mx-2">
-                  <img
-                    src="{{asset('assets/public/images/exchange/2560px-Flag_of_the_United_States.svg.png')}}"
-                    class="img-fluid"
-                    width="100"
-                    alt=""
-                  />
-                </div>
-                <div class="flex-1">
-                  <h6 class="text-primary">Currency</h6>
-                  <h5 class="title">USD</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Buying</h6>
-                  <h5 class="title">56.8323</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Selling</h6>
-                  <h5 class="title">57.9689</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="icons text-center mx-2">
-                  <img
-                    src="{{asset('assets/public/images/exchange/Flag_of_Europe.svg.png')}}"
-                    class="img-fluid"
-                    width="100"
-                    alt=""
-                  />
-                </div>
-                <div class="flex-1">
-                  <h6 class="text-primary btn-primary">Currency</h6>
-                  <h5 class="title">EUR</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Buying</h6>
-                  <h5 class="title">56.8323</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Selling</h6>
-                  <h5 class="title">57.9689</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="icons text-center mx-2">
-                  <img
-                    src="{{asset('assets/public/images/exchange/Flag_of_the_United_Arab_Emirates.svg.webp')}}"
-                    class="img-fluid"
-                    width="100"
-                    alt=""
-                  />
-                </div>
-                <div class="flex-1">
-                  <h6 class="text-primary">Currency</h6>
-                  <h5 class="title">AED</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Buying</h6>
-                  <h5 class="title">56.8323</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4">
-              <div
-                class="d-flex features feature-primary core-feature rounded shadow p-1 bg-white"
-              >
-                <div class="flex-1 ms-3">
-                  <h6 class="text-primary">Selling</h6>
-                  <h5 class="title">57.9689</h5>
-                </div>
-              </div>
-            </div>
-            <!-- end col -->
-          </div>
-          <!--end row-->
+                  <tr>
+                    <th scope="row">
+                        <div class="d-flex">
+                            <img
+                            src="{{asset($exchangeRate->file)}}"
+                            class="img-fluid"
+                            width="100"
+                            alt=""
+                            style="width: 50px;object-fit: cover;border-radius: 100%;height: 50px;"
+                          />
+                          <div class="p-3">
+                            {{$exchangeRate->currency}}
+                          </div>
+                        </div>
+                    </th>
+                    <td class="py-3">{{$exchangeRate->buying}}</td>
+                    <td class="py-3">{{$exchangeRate->selling}}</td>
+                  </tr>
+                @endforeach
+                </tbody>
+              </table>
         </div>
         <!--end container-->
       </section>

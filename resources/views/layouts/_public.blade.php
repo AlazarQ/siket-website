@@ -68,7 +68,7 @@
           <li class="list-inline-item text-white"> |</li>
 
             <li class="list-inline-item">
-              <a href="/coming-soon"><span class="mdi mdi-briefcase-account-outline" style="font-size: 16"> Vacancy</span>
+              <a href="{{route('vacancy')}}"><span class="mdi mdi-briefcase-account-outline" style="font-size: 16"> Vacancy</span>
               </a>
             </li>
 
@@ -169,11 +169,6 @@
                       <li>
                         <a href="/coming-soon" class="sub-menu-item">
                             Corporate Social Responsibility
-                        </a>
-                      </li>
-                      <li>
-                        <a href="/coming-soon" class="sub-menu-item">
-                          Document
                         </a>
                       </li>
                     </ul>
@@ -352,6 +347,11 @@
                   >
                       </li>
                       <li>
+                        <a href="{{route('exchange-rate')}}" class="sub-menu-item">
+                           Exchange Rate
+                          </a>
+                      </li>
+                      <li>
                         <a href="{{route('loan-calculator')}}" class="sub-menu-item">
                             Loan Calculator
                           </a>
@@ -363,7 +363,7 @@
                           </a>
                       </li>
                       <li>
-                        <a href="/coming-soon" class="sub-menu-item">
+                        <a href="{{route('announcement')}}" class="sub-menu-item">
                             Announcement
                           </a>
                       </li>
@@ -443,7 +443,7 @@
                 >
               </li>
               <li>
-                <a href="/coming-soon" class="text-foot fs-6"
+                <a href="{{route('vacancy')}}" class="text-foot fs-6"
                   ><i class="mdi mdi-chevron-right"></i> Vacancy</a
                 >
               </li>
@@ -492,7 +492,7 @@
             <h4 class="text-light fw-normal footer-head mb-4">Others</h4>
             <ul class="list-unstyled footer-list">
               <li>
-                <a href="/coming-soon" class="text-foot fs-6"
+                <a href="{{route('exchange-rate')}}" class="text-foot fs-6"
                   ><i class="mdi mdi-chevron-right"></i> Exchange Rate</a
                 >
               </li>
@@ -521,7 +521,7 @@
       <i class="mdi mdi-chevron-up d-block"> </i>
     </a>
     <!-- Back to top -->
-
+     @yield('scriptTop')
     <!-- javascript -->
     <script src="{{asset('assets/public/js/bootstrap.bundle.min.js')}}"></script>
     <!-- SLIDER -->

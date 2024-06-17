@@ -1,4 +1,4 @@
-@extends('layouts._public');
+@extends('layouts._public')
 @section('css')
 <link href="{{asset('assets/public/css/aos.css')}}" rel="stylesheet" />
 @endsection
@@ -50,17 +50,15 @@
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-down" data-aos-duration="1500">
                     <div class="about-img position-relative">
-                        <img src="{{asset('assets/public/images/about/about-overview.jpg')}}" class="img-fluid rounded shadow" alt="">
+                        <img src="{{asset($aboutUs->file)}}" class="img-fluid rounded shadow" alt="">
                     </div>
                 </div>
                 <!--end col-->
 
                 <div class="col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0" data-aos="fade-up" data-aos-duration="1500">
                     <div class="section-title ms-lg-4 mb-0">
-                        <span class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">get to know us</span>
-                        <h3 class="title mb-4">About Us</h3>
-                        <h4>Welcome to your financial partner, every step of the way</h4>
-                        <p class="text-muted">At Siket bank, we believe that our customers are more than just account numbers; you are the foundation of our success. Our dedicated team of professionals is here to ensure that every interaction you have with us is positive, helpful, and tailored to your needs.</p>
+                        <span class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">About Us</span>
+                        {!!Str::substr($aboutUs->description,0, 320)!!}. . .
 
                         <div class="mt-3">
                             <a href="{{route('about-us')}}" class="btn btn-primary">Read more</a>
@@ -75,7 +73,53 @@
     </section>
     <!--end section-->
     <!-- About END -->
+    <section class="section bg-light" id="features" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title text-center mb-4 pb-2">
+                        <h3 class="title text-capitalize mb-4">{{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} Exchange Rate </h3>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <table class="table table-striped table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Buying</th>
+                    <th scope="col">Selling</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($exchangeRates as $exchangeRate )
 
+                  <tr>
+                    <th scope="row">
+                        <div class="d-flex">
+                            <img
+                            src="{{asset($exchangeRate->file)}}"
+                            class="img-fluid"
+                            width="100"
+                            alt=""
+                            style="width: 50px;object-fit: cover;border-radius: 100%;height: 50px;"
+                          />
+                          <div class="p-3">
+                            {{$exchangeRate->currency}}
+                          </div>
+                        </div>
+
+                    </th>
+                    <td class="py-3">{{$exchangeRate->buying}}</td>
+                    <td class="py-3">{{$exchangeRate->selling}}</td>
+                  </tr>
+                @endforeach
+                </tbody>
+              </table>
+        </div>
+        <!--end container-->
+      </section>
+      <!--end section-->
     <!-- Counter START -->
     <section
       class="section counter bg-counter"

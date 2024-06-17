@@ -9,6 +9,8 @@ use App\Models\News;
 use App\Models\ATM;
 use App\Models\Branch;
 use App\Models\Employee;
+use App\Models\MegaHeader;
+use App\Models\ExchangeRate;
 
 class HomeController extends Controller
 {
@@ -20,7 +22,13 @@ public function index(){
     $atmCount = ATM::count();
     $branchCount = Branch::count();
     $employeeCount = Employee::count();
-
+    $aboutUs = MegaHeader::where('header_type_code','About')->where('status','Active')->where('language','hsilg')->first();
+    try{
+        $exchangeRates = ExchangeRate::where('status',"Active")->get();
+        }catch(Exception $ex)
+        {
+            abort(500);
+        }
     }catch(Exception $ex){
     abort(500);
     }
@@ -29,6 +37,8 @@ public function index(){
     ->with('newsList',$newsList)
     ->with('atmCount',$atmCount)
     ->with('employeeCount',$employeeCount)
+    ->with('aboutUs',$aboutUs)
+    ->with('exchangeRates',$exchangeRates)
     ->with('branchCount',$branchCount);
 }
 }

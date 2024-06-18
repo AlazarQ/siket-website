@@ -16,6 +16,7 @@ use App\Http\Controllers\Public\ComingSoonController;
 use App\Http\Controllers\Public\AnnualReportController;
 use App\Http\Controllers\Public\VacancyController;
 use App\Http\Controllers\Public\SubscriptionController;
+use App\Http\Controllers\Public\BranchController;
 
 
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -39,3 +40,4 @@ Route::get('/vacancy-detail/{position}/{id}',[VacancyController::class,'detail']
 
 Route::get('/coming-soon',[ComingSoonController::class,'index'])->name('coming-soon');
 Route::post('/subscription',[SubscriptionController::class,'subscribe'])->name('subscription');
+Route::get('/branches',[BranchController::class,'branches'])->name('branches');

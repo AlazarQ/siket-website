@@ -32,119 +32,39 @@
     <div class="row">
         <div class="col-12">
             <div class="accordion mt-4 pt-2" id="faq">
-                <div class="accordion-item rounded">
-                    <h2 class="accordion-header" id="headingOne">
+                @foreach ($faqs as $faq)
+                         <div class="accordion-item rounded mt-3">
+                            @if($loop->index == 0)
+                    <h2 class="accordion-header" id="heading{{$loop->index}}">
                         <button class="accordion-button border-0 bg-light" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            What types of services does Siket Bank have?
+                            data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->index}}"
+                            aria-expanded="true" aria-controls="collapse{{$loop->index}}">
+                            {{$faq->question}}
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse border-0 collapse show"
-                        aria-labelledby="headingOne" data-bs-parent="#faq">
+                    <div id="collapse{{$loop->index}}" class="accordion-collapse border-0 collapse show"
+                        aria-labelledby="heading{{$loop->index}}" data-bs-parent="#faq">
                         <div class="accordion-body">
-                            <ul>
-                                <li>Saving Services</li>
-                                <li>Loan Services</li>
-                                <li>Micro Insurance Services </li>
-                                <li>Mobile & Agent Banking services</li>
-                                <li>Third Part fund administration</li>
-                            </ul>
+                            {!!$faq->answer!!}
                         </div>
                     </div>
-                </div>
-
-                <div class="accordion-item rounded mt-2">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button border-0 bg-light collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false"
-                            aria-controls="collapseTwo">
-                            Where is Siket Bank's head office located?
+                    @else
+                    <h2 class="accordion-header" id="heading{{$loop->index}}">
+                        <button class="accordion-button border-0 bg-light collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->index}}"
+                            aria-expanded="true" aria-controls="collapse{{$loop->index}}">
+                            {{$faq->question}}
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse border-0 collapse"
-                        aria-labelledby="headingTwo" data-bs-parent="#faq">
+                    <div id="collapse{{$loop->index}}" class="accordion-collapse border-0 collapse"
+                        aria-labelledby="heading{{$loop->index}}" data-bs-parent="#faq">
                         <div class="accordion-body">
-                            Churchill Road, Infront of Haron Tower, Addis Ababa, Ethiopia
+                            {!!$faq->answer!!}
                         </div>
                     </div>
+                    @endif
                 </div>
-
-                <div class="accordion-item rounded mt-2">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button border-0 bg-light collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false"
-                            aria-controls="collapseThree">
-                            How many branches does Siket Bank have currently?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse border-0 collapse"
-                        aria-labelledby="headingThree" data-bs-parent="#faq">
-                        <div class="accordion-body">
-                            152
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item rounded mt-2">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button border-0 bg-light collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour" aria-expanded="false"
-                            aria-controls="collapseFour">
-                            What is the Siket Bank contact center number?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse border-0 collapse"
-                        aria-labelledby="headingFour" data-bs-parent="#faq">
-                        <div class="accordion-body">
-                            8342
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item rounded mt-2">
-                    <h2 class="accordion-header" id="headingFive">
-                        <button class="accordion-button border-0 bg-light collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFive" aria-expanded="false"
-                            aria-controls="collapseFive">
-                            Which are the branches of Siket Bank that provide Faida ID registration services?
-                        </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse border-0 collapse"
-                        aria-labelledby="headingFive" data-bs-parent="#faq">
-                        <div class="accordion-body">
-                           <ul>
-                            <li>Lideta Coordination Office</li>
-                            <li>Kazanchis Hilton Branch</li>
-                            <li>Sheger Menafesha Branch</li>
-                            <li>Merkato Efoyita Branch</li>
-                           </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item rounded mt-2">
-                    <h2 class="accordion-header" id="headingSix">
-                        <button class="accordion-button border-0 bg-light collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseSix" aria-expanded="false"
-                            aria-controls="collapseSix">
-                            What are the requirements for registering a national ID card?
-                        </button>
-                    </h2>
-                    <div id="collapseSix" class="accordion-collapse border-0 collapse"
-                        aria-labelledby="headingSix" data-bs-parent="#faq">
-                        <div class="accordion-body">
-                           <ul>
-                            <li>Kebele ID card</li>
-                            <li>Driving License</li>
-                            <li>Passport or any document that expresses your identity</li>
-                           </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

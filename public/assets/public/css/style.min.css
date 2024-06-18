@@ -891,7 +891,7 @@
   }
 
   .accordion .accordion-item .accordion-button.collapsed {
-    background-color: #fff;
+    background-color: #fff !important;
     color: #161c2d !important;
     transition: all 0.5s
   }

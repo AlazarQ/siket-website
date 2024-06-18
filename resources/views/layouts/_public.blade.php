@@ -167,6 +167,11 @@
                         </a>
                       </li>
                       <li>
+                        <a href="{{route('branches')}}" class="sub-menu-item">
+                           Branches
+                          </a>
+                      </li>
+                      <li>
                         <a href="/coming-soon" class="sub-menu-item">
                             Corporate Social Responsibility
                         </a>
@@ -372,6 +377,11 @@
                             Media
                           </a>
                       </li>
+                      <li>
+                        <a href="{{route('faq')}}" class="sub-menu-item">
+                            FAQ
+                          </a>
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -545,8 +555,12 @@
               <li class="fs-6"> <a href="/coming-soon" class="text-foot fs-6"
                 ><i class="mdi mdi-chevron-right"></i> ATM</a></li>
               <li class="fs-6">
-                <a href="/coming-soon" class="text-foot fs-6"
+                <a href="{{route('branches')}}" class="text-foot fs-6"
                 ><i class="mdi mdi-chevron-right"></i> Branches</a>
+              </li>
+              <li class="fs-6">
+                <a href="{{route('faq')}}" class="text-foot fs-6"
+                ><i class="mdi mdi-chevron-right"></i> FAQ</a>
               </li>
             </ul>
           </div>

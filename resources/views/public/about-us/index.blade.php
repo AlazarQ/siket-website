@@ -33,7 +33,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5 col-md-5">
                         <div class="about-img position-relative">
-                            <img src="{{asset($aboutUs->file)}}" width="300" class="img-fluid mx-auto rounded d-block" alt="">
+                            <img src="{{asset($aboutUs[0]->file)}}" width="300" class="img-fluid mx-auto rounded d-block" alt="">
                         </div>
                     </div>
                     <!--end col-->
@@ -41,7 +41,7 @@
                     <div class="col-lg-7 col-md-7">
                         <div class="about-content ms-lg-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
 
-                            {!!$aboutUs->description!!}
+                            {!!$aboutUs[0]->description!!}
 
                         </div>
                     </div>

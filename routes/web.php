@@ -10,6 +10,7 @@ use App\Http\Controllers\Public\GalleryController;
 use App\Http\Controllers\Public\ExchangeRateController;
 use App\Http\Controllers\Public\ExecutiveManagementController;
 use App\Http\Controllers\Public\NewsController;
+use App\Http\Controllers\Public\CSRController;
 use App\Http\Controllers\Public\AnnouncementController;
 use App\Http\Controllers\Public\FAQController;
 use App\Http\Controllers\Public\ComingSoonController;
@@ -17,6 +18,9 @@ use App\Http\Controllers\Public\AnnualReportController;
 use App\Http\Controllers\Public\VacancyController;
 use App\Http\Controllers\Public\SubscriptionController;
 use App\Http\Controllers\Public\BranchController;
+use App\Http\Controllers\Public\LocalizationController;
+use App\Http\Controllers\Public\ProductController;
+use App\Http\Controllers\Public\DigitalBankingController;
 
 
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -31,13 +35,18 @@ Route::get('/gallery',[GalleryController::class,'index'])->name('gallery');
 Route::get('/exchange-rate',[ExchangeRateController::class,'index'])->name('exchange-rate');
 Route::get('/news',[NewsController::class,'index'])->name('news');
 Route::get('/news/{title}',[NewsController::class,'detail'])->name('news-detail');
+Route::get('/csr',[CSRController::class,'index'])->name('csr');
+Route::get('/csr/{title}',[CSRController::class,'detail'])->name('csr-detail');
 Route::get('/announcement',[AnnouncementController::class,'index'])->name('announcement');
 Route::get('/announcement/{title}',[AnnouncementController::class,'detail'])->name('announcement-detail');
 Route::get('/faq',[FAQController::class,'index'])->name('faq');
 Route::get('/annual-report',[AnnualReportController::class,'index'])->name('annual-report');
 Route::get('/vacancy',[VacancyController::class,'index'])->name('vacancy');
 Route::get('/vacancy-detail/{position}/{id}',[VacancyController::class,'detail'])->name('vacancy-detail');
+Route::get('/product-service/{id}',[ProductController::class,'detail'])->name('product-detail');
+Route::get('/digital-banking/{id}',[DigitalBankingController::class,'detail'])->name('digital-banking-detail');
 
 Route::get('/coming-soon',[ComingSoonController::class,'index'])->name('coming-soon');
 Route::post('/subscription',[SubscriptionController::class,'subscribe'])->name('subscription');
 Route::get('/branches',[BranchController::class,'branches'])->name('branches');
+Route::get('/lang/{locale}',[LocalizationController::class,'localize'])->name('localize');

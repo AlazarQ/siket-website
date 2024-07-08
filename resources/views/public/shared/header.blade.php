@@ -2,41 +2,41 @@
     <!-- Navigation Menu-->
     <ul class="navigation-menu nav-light nav-right">
       <li class="has-submenu parent-parent-menu-item">
-          <a href="javascript:void(0)">About Us </a
+          <a href="javascript:void(0)">{{ __('About Us') }}</a
           ><span class="menu-arrow"></span>
           <ul class="submenu">
             <li>
               <ul>
-                @foreach ($aboutUsLinks as $link)
-                <li>
-                    <a href="{{route('about-us')}}" class="sub-menu-item">
-                      Who We Are
-                    </a>
-                </li>
-                @endforeach
                 <li>
                   <a href="{{route('about-us')}}" class="sub-menu-item">
-                    Who We Are
+                      {{ __('Who We Are') }}
                   </a>
                 </li>
                 <li>
                   <a href="{{route('board-director')}}" class="sub-menu-item">
-                    Board Of Directors
+                      {{ __('Board Of Directors') }}
                   </a>
                 </li>
                 <li>
                   <a href="{{route('executive-management')}}" class="sub-menu-item">
-                    Executive Managements
+                      {{ __('Executive Managements') }}
                   </a>
                 </li>
                 <li>
                   <a href="{{route('annual-report')}}" class="sub-menu-item">
-                    Annual Report
+                      {{ __('Annual Report') }}
+
                   </a>
                 </li>
                 <li>
-                  <a href="/coming-soon" class="sub-menu-item">
-                      Corporate Social Responsibility
+                  <a href="{{route('branches')}}" class="sub-menu-item">
+                      {{ __('Branches') }}
+
+                    </a>
+                </li>
+                <li>
+                  <a href="{{route('csr')}}" class="sub-menu-item">
+                      {{ __('Corporate Social Responsibility') }}
                   </a>
                 </li>
               </ul>
@@ -44,151 +44,43 @@
           </ul>
         </li>
       <li class="has-submenu parent-parent-menu-item">
-        <a href="javascript:void(0)">Product & Service</a
+        <a href="javascript:void(0)">{{ __('Product & Service') }}</a
         ><span class="menu-arrow"></span>
         <ul class="submenu megamenu">
-          <li>
+        @foreach ($productCategory as $category )
+        <li>
             <ul>
               <li class="megamenu-head">
-                <strong>Saving Accounts</strong>
+                <strong>{{$category}}</strong>
                 <hr class="m-0" />
               </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Savings Account</a
+             @foreach ($products as $product)
+             @if($product->subtype == $category)
+             <li>
+                <a href="{{route('product-detail',['id'=>$product->parent_id])}}" class="sub-menu-item"
+                  >{{$product->title}}</a
                 >
               </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Fixed Time Account</a
-                >
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Current Account
-                </a>
-              </li>
+              @endif
+             @endforeach
             </ul>
           </li>
-          <li>
-            <ul>
-              <li class="megamenu-head">
-                Special Accounts
-                <hr class="m-0" />
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Special Saving Account</a
-                >
-              </li>
-              <li>
-                  <a href="/coming-soon" class="sub-menu-item">
-                    Diaspora Account
-                  </a>
-                </li>
-              <li>
-                <a
-                  href="/coming-soon"
-                  class="sub-menu-item"
-                  >Women Saving Account</a
-                >
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Elder Saving Account
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li class="megamenu-head">
-                Business Accounts
-                <hr class="m-0" />
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Salary Account</a
-                >
-              </li>
-              <li>
-                <a
-                  href="/coming-soon"
-                  class="sub-menu-item"
-                  >Investment Account</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-              <ul>
-                <li class="megamenu-head">
-                 Interest Free Banking
-                  <hr class="m-0" />
-                </li>
-                <li>
-                  <a href="/coming-soon" class="sub-menu-item"
-                    >IFB Saving</a
-                  >
-                </li>
-                <li>
-                  <a href="/coming-soon" class="sub-menu-item"
-                    >IFB Current</a
-                  >
-                </li>
-              </ul>
-            </li>
-          <li>
-            <ul>
-              <li class="megamenu-head">
-                Loan and Advance
-                <hr class="m-0" />
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >Loans</a
-                >
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"
-                  >OverDraft</a
-                >
-              </li>
-            </ul>
-          </li>
+        @endforeach
         </ul>
       </li>
       <li class="has-submenu parent-parent-menu-item">
-        <a href="javascript:void(0)">Digital Banking </a
+        <a href="javascript:void(0)">{{ __('Digital Banking') }} </a
         ><span class="menu-arrow"></span>
         <ul class="submenu">
           <li>
             <ul>
-
-              <li>
-                <a href="/coming-soon" class="sub-menu-item">
-                  Mobile Banking
+             @foreach ($digitalBankings as $digitalBanking )
+             <li>
+                <a href="{{route('digital-banking-detail',['id'=>$digitalBanking->parent_id])}}" class="sub-menu-item">
+                  {{$digitalBanking->title}}
                 </a>
               </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item">
-                  Agency Banking
-                </a>
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item">
-                  Internet Banking
-                </a>
-              </li>
-              <li>
-                <a href="/coming-soon" class="sub-menu-item">
-                  USSD
-                </a>
-              </li>
-
-              <li>
-                <a href="/coming-soon" class="sub-menu-item"> POS </a>
-              </li>
+             @endforeach
             </ul>
           </li>
         </ul>
@@ -199,51 +91,86 @@
         <a href="page-about.html" class="sub-menu-item">About Us</a>
       </li> -->
       <li class="has-submenu parent-parent-menu-item">
-          <a href="javascript:void(0)">Information</a
+          <a href="javascript:void(0)">{{ __('Information') }}</a
           ><span class="menu-arrow"></span>
           <ul class="submenu">
             <li>
               <ul>
                 <li>
                   <a href="{{route('contact-us')}}" class="sub-menu-item"
-                  >Contact Us</a
+                  >{{ __('Contact Us') }}</a
                 >
                 </li>
                 <li>
                   <a href="{{route('vacancy')}}" class="sub-menu-item"
-              >Vacancy</a
+              >{{ __('Vacancy') }}</a
             >
                 </li>
                 <li>
+                  <a href="{{route('exchange-rate')}}" class="sub-menu-item">
+                      {{ __('Exchange Rate') }}
+                    </a>
+                </li>
+                <li>
                   <a href="{{route('loan-calculator')}}" class="sub-menu-item">
-                      Loan Calculator
+                      {{ __('Loan Calculator') }}
                     </a>
                 </li>
 
                 <li>
                   <a href="{{route('news')}}" class="sub-menu-item">
-                      News
+                      {{ __('News') }}
                     </a>
                 </li>
                 <li>
-                  <a href="/coming-soon" class="sub-menu-item">
-                      Announcement
+                  <a href="{{route('announcement')}}" class="sub-menu-item">
+                      {{ __('Announcement') }}
                     </a>
                 </li>
                 <li>
                   <a href="{{route('gallery')}}" class="sub-menu-item">
-                      Media
+                      {{ __('Media') }}
+                    </a>
+                </li>
+                <li>
+                  <a href="{{route('faq')}}" class="sub-menu-item">
+                      {{ __('FAQ') }}
                     </a>
                 </li>
               </ul>
             </li>
           </ul>
         </li>
+        <li class="has-submenu parent-parent-menu-item">
+          @if(App::getLocale() == "en")
+          <a href="javascript:void(0)">
+              EN
+          </a>
+          @elseif(App::getLocale() == "am")
+          <a href="javascript:void(0)">
+              አማ
+          </a>
+          @elseif(App::getLocale() == "om")
+          <a href="javascript:void(0)">
+              OM
+          </a>
+          @endif
+          <span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li>
+              <ul>
+                @foreach ($languages as $lang )
+                <li>
+                    <a href="{{route('localize',['locale'=>$lang->code])}}" class="sub-menu-item"
+                    >{{$lang->name}}</a
+                  >
+                  </li>
+                @endforeach
+              </ul>
+            </li>
+          </ul>
+        </li>
 
-      <li class="has-submenu parent-parent-menu-item text-info">
-        <a href="javascript:void(0)">ENG</a
-        >
-      </li>
     </ul>
     <!--end navigation menu-->
   </div>

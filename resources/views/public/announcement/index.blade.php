@@ -58,7 +58,7 @@
                       <li class="list-inline-item"><i class="mdi mdi-calendar-check me-2"></i>{{Carbon\Carbon::parse($announcement->date_created)->toFormattedDateString()}}</li>
                   </ul>
                   <a
-                    href="{{route('news-detail',['title'=>Str::slug($announcement->title)])}}"
+                    href="{{route('news-detail',['title'=>Str::slug($announcement->title)."-".$announcement->id])}}"
                     class="h5 title text-dark d-block mb-0"
                     >{{$announcement->title}}</a
                   >
@@ -66,7 +66,7 @@
                     {{Str::substr($announcement->description,0, 200)}}. . .
                   </p>
                   <div class="read-more fs-6 mt-3">
-                    <a href="{{route('news-detail',['title'=>Str::slug($announcement->title)])}}" class="text-dark"> Read More</a>
+                    <a href="{{route('news-detail',['title'=>Str::slug($announcement->title)."-".$announcement->id])}}" class="text-dark"> Read More</a>
                   </div>
                 </div>
               </div>

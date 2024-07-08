@@ -32,16 +32,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                <h3>{{$vacancy->vacancy_position}}</h3>
-                <p class="d-flex">Deadline: <i class="mdi mdi-calendar-month d-block mb-0 ms-2"></i> <span class="px-2">{{$vacancy->deadline}}</span></p>
+                <h3>{{$vacancy[0]->vacancy_position}}</h3>
+                <p class="d-flex">Deadline: <i class="mdi mdi-calendar-month d-block mb-0 ms-2"></i> <span class="px-2">{{Carbon\Carbon::parse($vacancy[0]->deadline)->toFormattedDateString()}}</span></p>
+                <p class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">{{abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline)))) <=1?abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline))))." Day Left":abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline))))." Days Left"}} </p>
+
                 </div>
                 <hr>
               <div class="col-12">
-               {!!$vacancy->vacancy_description!!}
+               {!!$vacancy[0]->vacancy_description!!}
               </div>
-              @if($vacancy->application_link != null)
+              @if($vacancy[0]->application_link != null)
               <div class="col-12 my-5">
-               <a href="{{$vacancy->application_link}}" class="btn btn-primary">Apply</a>
+               <a href="{{$vacancy[0]->application_link}}" class="btn btn-primary">Apply</a>
               </div>
               @endif
             </div>

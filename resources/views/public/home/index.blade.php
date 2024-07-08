@@ -24,7 +24,7 @@
           <h1 class="heading text-white mb-4">{{$banner->title}}</h1>
           <h1 class="heading text-white mb-4">የስኬትዎ መሰረት</h1>
 
-          <a href="/about-us" class="btn btn-primary pt-2 mt-4">Learn More</a>
+          <a href="/about-us" class="btn btn-primary pt-2 mt-4">{{ __('Learn More') }}</a>
          </div>
        </div>
        <!-- end col -->
@@ -50,18 +50,18 @@
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-down" data-aos-duration="1500">
                     <div class="about-img position-relative">
-                        <img src="{{asset($aboutUs->file)}}" class="img-fluid rounded shadow" alt="">
+                        <img src="{{asset($aboutUs[0]->file)}}" class="img-fluid rounded shadow" alt="">
                     </div>
                 </div>
                 <!--end col-->
 
                 <div class="col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0" data-aos="fade-up" data-aos-duration="1500">
                     <div class="section-title ms-lg-4 mb-0">
-                        <span class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">About Us</span>
-                        {!!Str::substr($aboutUs->description,0, 320)!!}. . .
+                        <span class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">{{ __('About Us') }}</span>
+                        {!!Str::substr($aboutUs[0]->description,0, 320)!!}. . .
 
                         <div class="mt-3">
-                            <a href="{{route('about-us')}}" class="btn btn-primary">Read more</a>
+                            <a href="{{route('about-us')}}" class="btn btn-primary">{{ __('Read More') }}</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h3 class="title text-capitalize mb-4">{{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} Exchange Rate </h3>
+                        <h3 class="title text-capitalize mb-4">{{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} {{ __('Exchange Rate') }} </h3>
                     </div>
                 </div>
                 <!--end col-->
@@ -86,9 +86,9 @@
             <table class="table table-striped table-responsive">
                 <thead>
                   <tr>
-                    <th scope="col">Currency</th>
-                    <th scope="col">Buying</th>
-                    <th scope="col">Selling</th>
+                    <th scope="col">{{ __('Currency') }}</th>
+                    <th scope="col">{{ __('Buying') }}</th>
+                    <th scope="col">{{ __('Selling') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -133,10 +133,10 @@
               <i class="mdi mdi-bank text-light fs-3"></i>
               <div class="content overflow-hidden d-block">
                 <h4 class="text-light py-2 mb-0">
-                  +<span class="counter-value" data-target="{{$branchCount}}">{{$branchCount-$branchCount}}</span>
+                  <span class="counter-value" data-target="{{$branchCount}}">{{$branchCount-$branchCount}}</span>+
                 </h4>
 
-                <p class="counter-name text-light mb-0">Branches</p>
+                <p class="counter-name text-light mb-0">{{__('Branches')}}</p>
               </div>
             </div>
           </div>
@@ -147,9 +147,9 @@
               <i class="mdi mdi-wallet-outline text-light fs-3"></i>
               <div class="content overflow-hidden d-block">
                 <h4 class="text-light py-2 mb-0">
-                  +<span class="counter-value" data-target="{{$atmCount}}">{{$atmCount-$atmCount}}</span>
+                  <span class="counter-value" data-target="{{$atmCount}}">{{$atmCount-$atmCount}}</span>+
                 </h4>
-                <p class="counter-name text-light mb-0">ATMs</p>
+                <p class="counter-name text-light mb-0">{{__('ATMs')}}</p>
               </div>
             </div>
           </div>
@@ -160,9 +160,9 @@
               <i class="mdi mdi-account-group text-light fs-3"></i>
               <div class="content overflow-hidden d-block">
                 <h4 class="text-light py-2 mb-0">
-                  +<span class="counter-value" data-target="{{$employeeCount}}">{{$employeeCount-$employeeCount}}</span>
+                  <span class="counter-value" data-target="{{$employeeCount}}">{{$employeeCount-$employeeCount}}</span>+
                 </h4>
-                <p class="counter-name text-light mb-0">Employees</p>
+                <p class="counter-name text-light mb-0">{{__('Employees')}}</p>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@
                                     class="mdi mdi-account h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle"></i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Open Account</h5>
+                                <h5 class="text-dark mt-2">{{__('Open Account')}}</h5>
 
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                                     class="mdi mdi-calculator h4 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle"></i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Loan Calculator</h5>
+                                <h5 class="text-dark mt-2">{{__('Loan Calculator')}}</h5>
 
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                                     class="mdi mdi-phone h4 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle"></i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Contact Us</h5>
+                                <h5 class="text-dark mt-2">{{__('Contact Us')}}</h5>
 
                             </div>
                         </div>
@@ -236,10 +236,10 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <div class="section-title text-center mb-4 pb-2">
-            <h3 class="title text-capitalize mb-4">News</h3>
+            <h3 class="title text-capitalize mb-4">{{__('News')}}</h3>
 
             <p class="para-desc mx-auto text-muted mb-0">
-              Stay update with our latest news
+                {{__('Stay update with our latest news')}}
             </p>
           </div>
         </div>
@@ -273,15 +273,15 @@
                       <li class="list-inline-item"><i class="mdi mdi-calendar-check me-2"></i>{{Carbon\Carbon::parse($news->date_created)->toFormattedDateString()}}</li>
                   </ul>
                   <a
-                    href="{{route('news-detail',['title'=>Str::slug($news->title)])}}"
+                    href="{{route('news-detail',['title'=>Str::slug($news->title)."-".$news->id])}}"
                     class="h5 title text-dark d-block mb-0"
                     >{{$news->title}}</a
                   >
                   <p class="text-muted mt-2 mb-0">
-                    {{Str::substr($news->description,0, 200)}}. . .
+                    {!!Str::substr($news->description,0, 200)!!}. . .
                   </p>
                   <div class="read-more fs-6 mt-3">
-                    <a href="{{route('news-detail',['title'=>Str::slug($news->title)])}}" class="text-dark"> Read More</a>
+                    <a href="{{route('news-detail',['title'=>Str::slug($news->title)."-".$news->id])}}" class="text-dark"> {{__('Read More')}}</a>
                   </div>
                 </div>
               </div>

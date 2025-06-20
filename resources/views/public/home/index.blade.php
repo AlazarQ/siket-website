@@ -20,9 +20,9 @@
    <div class="container">
      <div class="row justify-content-center mt-5">
        <div class="col-lg-6 col-12">
-         <div class="title-heading text-center">
+         <div class="title-heading text-start">
           <h1 class="heading text-white mb-4">{{$banner->title}}</h1>
-          <h1 class="heading text-white mb-4">የስኬትዎ መሰረት</h1>
+          <h1 class="heading text-white mb-4"></h1>
 
           <a href="/about-us" class="btn btn-primary pt-2 mt-4">{{ __('Learn More') }}</a>
          </div>
@@ -44,6 +44,7 @@
 
 </div>
 
+   @if(count($aboutUs) != 0)
     <!-- About START -->
     <section class="section about-section" id="about">
         <div class="container">
@@ -73,12 +74,13 @@
     </section>
     <!--end section-->
     <!-- About END -->
+    @endif
     <section class="section bg-light" id="features" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center mb-4 pb-2">
-                        <h3 class="title text-capitalize mb-4">{{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} {{ __('Exchange Rate') }} </h3>
+                        <h3 class="title text-capitalize mb-4">{{Carbon\Carbon::now()->toFormattedDateString()}} {{ __('Exchange Rate') }} </h3>
                     </div>
                 </div>
                 <!--end col-->

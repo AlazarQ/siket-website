@@ -7,12 +7,26 @@ use Illuminate\Http\Request;
 use App\Models\Vacancy;
 use DB;
 use Carbon\Carbon;
-
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
 class VacancyController extends Controller
 {
     //
     public function index(){
         try{
+        SEOMeta::setTitle("Siket Bank Vacancies | Join Our Team of Banking Professionals");
+        SEOMeta::setDescription("Explore current job vacancies at Siket Bank and discover rewarding career opportunities in banking. Apply today to join our team of dedicated professionals");
+        SEOMeta::setCanonical('https://siketbank.com/vacancy');
+        SEOMeta::addKeyword(['Siket Bank vacancies', 'careers in banking','banking jobs','job vacancies', 'banking professionals']);
+        OpenGraph::setDescription("Explore current job vacancies at Siket Bank and discover rewarding career opportunities in banking. Apply today to join our team of dedicated professionals");
+        OpenGraph::setTitle("Siket Bank Vacancies | Join Our Team of Banking Professionals");
+        OpenGraph::setUrl('https://siketbank.com/vacancy');
+        OpenGraph::addProperty('type', 'vacancy');
+        TwitterCard::setTitle("Siket Bank Vacancies | Join Our Team of Banking Professionals");
+        TwitterCard::setDescription("Explore current job vacancies at Siket Bank and discover rewarding career opportunities in banking. Apply today to join our team of dedicated professionals");
+        TwitterCard::setUrl('https://siketbank.com/vacancy');
+
          $lang_code = app()->getLocale();
          $today = Carbon::now()->format('Y-m-d');
          $vacancies = DB::select("with onlyEnglish as (

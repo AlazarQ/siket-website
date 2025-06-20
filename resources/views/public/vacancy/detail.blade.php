@@ -8,13 +8,13 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center pt-4">
-                                <h3 class="title-pager mb-0">Vacancy Detail</h3>
+                                <h3 class="title-pager mb-0">{{__("Vacancy Detail")}}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
-                                <li><a href="{{route('vacancy')}}" class="text-dark fs-6">Vacancy</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
+                                <li><a href="{{route('vacancy')}}" class="text-dark fs-6">{{__("Vacancy")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">Vacancy Detail</span>
+                                    <span class="text-primary fs-6">{{__("Vacancy Detail")}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-12">
                 <h3>{{$vacancy[0]->vacancy_position}}</h3>
-                <p class="d-flex">Deadline: <i class="mdi mdi-calendar-month d-block mb-0 ms-2"></i> <span class="px-2">{{Carbon\Carbon::parse($vacancy[0]->deadline)->toFormattedDateString()}}</span></p>
+                <p class="d-flex">{{__("Deadline")}}: <i class="mdi mdi-calendar-month d-block mb-0 ms-2"></i> <span class="px-2">{{Carbon\Carbon::parse($vacancy[0]->deadline)->toFormattedDateString()}}</span></p>
                 <p class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">{{abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline)))) <=1?abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline))))." Day Left":abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy[0]->deadline))))." Days Left"}} </p>
 
                 </div>
@@ -43,7 +43,7 @@
               </div>
               @if($vacancy[0]->application_link != null)
               <div class="col-12 my-5">
-               <a href="{{$vacancy[0]->application_link}}" class="btn btn-primary">Apply</a>
+               <a href="{{$vacancy[0]->application_link}}" class="btn btn-primary">{{__("Apply")}}</a>
               </div>
               @endif
             </div>

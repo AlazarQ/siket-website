@@ -13,7 +13,7 @@ class HeaderController extends Controller
     static function  header(){
     try{
         $lang_code =app()->getLocale();
-        $languages =Language::all();
+        $languages =Language::where('status','Active')->get();
         $productCategory= array();
         $productList = DB::select("with prodWithEnglish as (
 SELECT mg.title,mg.id as parent_id,hs.name as subtype,mg.id FROM mega_header mg

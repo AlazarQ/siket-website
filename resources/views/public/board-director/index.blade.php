@@ -8,12 +8,12 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center">
-                                <h3 class="title-pager mb-0">Board Of Directors</h3>
+                                <h3 class="title-pager mb-0">{{__("Board Of Directors")}}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">Board Of Directors
+                                    <span class="text-primary fs-6">{{__("Board Of Directors")}}
                                     </span>
                                 </li>
                             </ul>

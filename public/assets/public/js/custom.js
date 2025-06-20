@@ -15,4 +15,9 @@ $(document).ready(function () {
         $("#totalPrincipalInterest").val(totalAmountWithInterest.toFixed(2));
         $("#totalInterest").val(totalInterest.toFixed(2));
     });
+    $("#service-read-more-btn").click(function () {
+        $(this).hide();
+        $(".about-content").addClass("d-none");
+        $(".about-content-detail").removeClass("d-none");
+    });
 });

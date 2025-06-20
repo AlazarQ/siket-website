@@ -7,10 +7,25 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use App\Models\News;
 use DB;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
 class AnnouncementController extends Controller
 {
     public function index(Request $request){
         try{
+        SEOMeta::setTitle("Siket Bank Announcements | Latest Bank Updates");
+        SEOMeta::setDescription("Discover Siket Bank's official announcements and important updates");
+        SEOMeta::setCanonical('https://siketbank.com/announcement');
+        SEOMeta::addKeyword(['Siket Bank announcements', 'latest bank announcements','financial news','financial updates', 'banking news today']);
+        OpenGraph::setDescription("Discover Siket Bank's official announcements and important updates");
+        OpenGraph::setTitle("Siket Bank News | Stay Updated with Latest Banking Updates");
+        OpenGraph::setUrl('https://siketbank.com/announcement');
+        OpenGraph::addProperty('type', 'announcement');
+        TwitterCard::setTitle("Siket Bank News | Stay Updated with Latest Banking Updates");
+        TwitterCard::setDescription("Discover Siket Bank's official announcements and important updates");
+        TwitterCard::setUrl('https://siketbank.com/announcement');
+
         $lang_code = app()->getLocale();
         $announcementList = DB::select("with onlyEnglish as (
             SELECT * FROM news b where b.type='Announcement' and b.language = 'en' and b.status = 'Active' order by b.id ASC

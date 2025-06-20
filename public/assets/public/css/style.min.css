@@ -374,7 +374,7 @@
   }
 
   .btn.btn-primary:hover,.btn.btn-primary:focus,.btn.btn-primary:active,.btn.btn-primary.active,.btn.btn-primary.focus {
-    background-color: #abcf39 !important
+    background-color: #586e6c !important;
   }
 
   .btn.btn-primary-outline {
@@ -1039,8 +1039,8 @@
   }
 
   .social-icon li a {
-    color: #707070;
-    border: 1px solid #707070;
+    color: #fff;
+    border: 1px solid #fff;
     height: 32px;
     width: 32px;
     font-size: 14px !important;
@@ -1051,7 +1051,9 @@
     transition: all .5s ease;
     overflow: hidden;
     position: relative;
-    border-radius: 50px
+    border-radius: 50px;
+    padding-top: 2px;
+    padding-left: 1px;
   }
 
   .social-icon li a:hover {
@@ -1683,7 +1685,8 @@
     }
 
     #topnav .logo .l-dark {
-        display: inline-block !important
+        display: inline-block !important;
+        width: 120px;
     }
 
     #topnav .logo .l-light {
@@ -1981,7 +1984,7 @@
 
   .image-wrap {
     position: absolute;
-    top: -100px;
+    top: 0;
     bottom: -100px;
     left: -30px;
     right: -30px;
@@ -3666,7 +3669,7 @@
     }
 }
 #prim-nav{
-    background-color: #abcf39 !important;
+    background-color: #586e6c !important;
     padding: 5px 0;
 }
 #prim-nav a{
@@ -3694,7 +3697,7 @@
     margin-top: 15px;
 }
 .header-icon {
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     border-radius: 100% !important;
     background-color: #abcf39;
     display: inline-flex;
@@ -3721,4 +3724,43 @@ h3.title-pager.mb-0 {
 .bg-default .text-dark.fs-6:hover{
     color: #abcf39 !important;
 
+}
+.sub-type-menu-item{
+    background-color: #abcf39;
+}
+.megamenu .sub-menu-item {
+    color: #000 !important;
+    text-wrap: wrap;
+}
+.megamenu .sub-menu-item:hover {
+    color:#abcf39 !important
+}
+.megamenu .sub-category-container {
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+#megamenu-accordion{
+    display: none;
+
+}
+#megamenu-accordion .accordion-button{
+    background-color: #586e6c;
+    color: #fff !important;
+    font-weight: 500 !important;
+
+}
+#megamenu-accordion .accordion-button.collapsed{
+    color: #161c2d !important;
+    font-weight: 500 !important;
+}
+#megamenu-tab{
+    display: flex;
+}
+@media(max-width:992px){
+    #megamenu-accordion{
+        display: block;
+    }
+    #megamenu-tab{
+        display: none !important;
+    }
 }

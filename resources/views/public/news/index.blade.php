@@ -11,7 +11,7 @@
                                 <h3 class="title-pager mb-0">{{__('News')}} </h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__('Home')}}</a></li>
                                 <li>
                                     <span class="text-primary fs-6">{{__('News')}}</span>
                                 </li>
@@ -77,7 +77,7 @@
                     {!!Str::substr($news->description,0, 200)!!}. . .
                   </p>
                   <div class="read-more fs-6 mt-3">
-                    <a href="{{route('news-detail',['title'=>Str::slug($news->title)."-".$news->id])}}" class="text-dark"> Read More</a>
+                    <a href="{{route('news-detail',['title'=>Str::slug($news->title)."-".$news->id])}}" class="text-dark">{{__("Read More")}}</a>
                   </div>
                 </div>
               </div>

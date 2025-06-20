@@ -8,12 +8,12 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center pt-4">
-                                <h3 class="title-pager mb-0">Vacancy</h3>
+                                <h3 class="title-pager mb-0">{{__("Vacancy")}}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">Vacancy</span>
+                                    <span class="text-primary fs-6">{{__("Vacancy")}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -40,8 +40,8 @@
                         <div class="flex-1 ms-3">
                             <h6 class="text-primary"></h6>
                             <h5 class="title">{{$vacancy->vacancy_position}}</h5>
-                            <p>Deadline: {{Carbon\Carbon::parse($vacancy->deadline)->toFormattedDateString()}}</p>
-                            <p class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">{{abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline)))) <=1?abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline))))." Day Left":abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline))))." Days Left"}} </p>
+                            <p>{{__("Deadline")}}: {{Carbon\Carbon::parse($vacancy->deadline)->toFormattedDateString()}}</p>
+                            <p class="badge bg-soft-primary text-uppercase text-primary py-2 px-3 rounded-pill mb-2">{{abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline)))) <=1?abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline)))).__("Day Left"):abs(ceil(Carbon\Carbon::now()->diffInDays(Carbon\Carbon::parse($vacancy->deadline)))).__("Days Left")}} </p>
                         </div>
                     </div>
                 </div>

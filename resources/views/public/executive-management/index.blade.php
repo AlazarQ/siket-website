@@ -8,12 +8,12 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center">
-                                <h3 class="title-pager mb-0">Executive Managements</h3>
+                                <h3 class="title-pager mb-0">{{__("Executive Managements")}}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">Executive Managements
+                                    <span class="text-primary fs-6">{{__("Executive Managements")}}
                                     </span>
                                 </li>
                             </ul>
@@ -63,7 +63,7 @@
                             <img src="{{asset($management->file)}}" class="img-fluid d-block mx-auto team-image" alt="img">
                         </div>
                         <div class="member-detail position-relative bg-white p-2">
-                            <h5 class="member-name mb-1"><a href="page-team-detail.html" class="text-dark">
+                            <h5 class="member-name mb-1"><a href="{{route('directors',['id'=>$management->id])}}" class="text-dark">
                                 {{$management->name}}</a></h5>
                             <span class="mt-0">{{$management->position}}</span>
 

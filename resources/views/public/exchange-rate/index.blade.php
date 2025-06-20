@@ -8,7 +8,7 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center">
-                                <h3 class="title-pager mb-0"> {{Carbon\Carbon::parse($exchangeRates[0]->date_created)->toFormattedDateString()}} Exchange Rate </h3>
+                                <h3 class="title-pager mb-0"> {{Carbon\Carbon::now()->toFormattedDateString()}} Exchange Rate </h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
                                 <li><a href="/" class="text-dark fs-6">Home</a></li>

@@ -8,12 +8,12 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center pt-4">
-                                <h3 class="title-pager mb-0">Corporate Social Responsibility </h3>
+                                <h3 class="title-pager mb-0">{{__("Corporate Social Responsibility")}} </h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">Corporate Social Responsibility</span>
+                                    <span class="text-primary fs-6">{{__("Corporate Social Responsibility")}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -35,7 +35,7 @@
         <div class="col-12">
           <div class="section-title text-center mb-4 pb-2">
             <h4 class="para-desc mx-auto text-muted mb-0">
-            Siket Bank's Commitment to Corporate Social Responsibility
+            {{__("Siket Bank's Commitment to Corporate Social Responsibility")}}
             </h4>
           </div>
         </div>
@@ -77,7 +77,7 @@
                     {!!Str::substr($csr->description,0, 200)!!}. . .
                   </p>
                   <div class="read-more fs-6 mt-3">
-                    <a href="{{route('csr-detail',['title'=>Str::slug($csr->title)."-".$csr->id])}}" class="text-dark"> Read More</a>
+                    <a href="{{route('csr-detail',['title'=>Str::slug($csr->title)."-".$csr->id])}}" class="text-dark"> {{__("Read More")}}</a>
                   </div>
                 </div>
               </div>

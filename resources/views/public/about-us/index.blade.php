@@ -8,12 +8,12 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center">
-                                <h3 class="title-pager mb-0"> About Siket Bank </h3>
+                                <h3 class="title-pager mb-0">{{__("About Siket Bank")}} </h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">About Us</span>
+                                    <span class="text-primary fs-6">{{__("About Us")}} </span>
                                 </li>
                             </ul>
                         </div>
@@ -57,7 +57,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="section-title text-center mb-4 pb-2">
-                            <h3 class="title text-capitalize mb-4">CORE VALUES:</h3>
+                            <h3 class="title text-capitalize mb-4">{{__("CORE VALUES:")}}</h3>
                         </div>
                     </div>
                     <!--end col-->
@@ -71,7 +71,7 @@
                                     class="mdi h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle">S</i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Successfulness</h5>
+                                <h5 class="text-dark mt-2">{{__("Successfulness")}}</h5>
 
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                     class="mdi h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle">I</i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Integrity</h5>
+                                <h5 class="text-dark mt-2">{{__("Integrity")}}</h5>
 
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                     class="mdi h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle">K</i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Knowledgeable</h5>
+                                <h5 class="text-dark mt-2">{{__("Knowledgeable")}}</h5>
 
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                     class="mdi h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle">E</i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Empowerment</h5>
+                                <h5 class="text-dark mt-2">{{__("Empowerment")}}</h5>
 
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                     class="mdi h3 text-center justify-content-center align-items-center d-flex mx-auto rounded-circle">T</i>
                             </div>
                             <div class="content mt-3">
-                                <h5 class="text-dark mt-2">Timeliness</h5>
+                                <h5 class="text-dark mt-2">{{__("Timeliness")}}</h5>
 
                             </div>
                         </div>

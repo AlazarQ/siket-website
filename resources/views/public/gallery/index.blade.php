@@ -7,12 +7,12 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         <div class="text-center">
-                            <h3 class="title-pager mb-0">Media Gallery</h3>
+                            <h3 class="title-pager mb-0">{{__("Media Gallery")}}</h3>
                         </div>
                         <ul class="page-next text-center mt-4 pt-2">
-                            <li><a href="/" class="text-dark fs-6">Home</a></li>
+                            <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                             <li>
-                                <span class="text-primary fs-6">Media Gallery</span>
+                                <span class="text-primary fs-6">{{__("Media Gallery")}}</span>
                             </li>
                         </ul>
                     </div>

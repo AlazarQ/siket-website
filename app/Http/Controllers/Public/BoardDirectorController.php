@@ -6,11 +6,26 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BoardDirector;
 use DB;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
 class BoardDirectorController extends Controller
 {
     //
     public function index(){
         try{
+        SEOMeta::setTitle("Siket Bank Board of Directors | Meet Our Leadership Team");
+        SEOMeta::setDescription("Discover the Siket Bank Board of Directors, a team of visionary leaders driving our commitment to excellence in banking services");
+        SEOMeta::setCanonical('https://siketbank.com/board-of-director');
+        SEOMeta::addKeyword(['Siket Bank Board of Directors', 'leadership team','customer-centric leadership']);
+        OpenGraph::setDescription("Discover the Siket Bank Board of Directors, a team of visionary leaders driving our commitment to excellence in banking services");
+        OpenGraph::setTitle("Siket Bank Board of Directors | Meet Our Leadership Team");
+        OpenGraph::setUrl('https://siketbank.com/board-of-director');
+        OpenGraph::addProperty('type', 'board-of-director');
+        TwitterCard::setTitle("Siket Bank Board of Directors | Meet Our Leadership Team");
+        TwitterCard::setDescription("Discover the Siket Bank Board of Directors, a team of visionary leaders driving our commitment to excellence in banking services");
+        TwitterCard::setUrl('https://siketbank.com/board-of-director');
+
         $lang_code =app()->getLocale();
         $boards = DB::select("with onlyEnglish as (
             SELECT * FROM board_director b where b.type='chairman' or b.type='board' and  b.language = 'en' and b.status = 'Active' order by b.id ASC

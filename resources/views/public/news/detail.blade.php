@@ -8,13 +8,13 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="text-center pt-4">
-                                <h3 class="title-pager mb-0">News</h3>
+                                <h3 class="title-pager mb-0">{{__('News')}}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
-                                <li><a href="/news" class="text-dark fs-6">News</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{__('Home')}}</a></li>
+                                <li><a href="/news" class="text-dark fs-6">{{__('News')}}</a></li>
                                 <li>
-                                    <span class="text-primary fs-6">News Detail</span>
+                                    <span class="text-primary fs-6">{{__('News Detail')}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -71,17 +71,15 @@
 
                         <!-- SOCIAL -->
                         <div class="widget mb-4">
-                            <h5 class="pb-2 widget-title border-bottom">Follow us</h5>
+                            <h5 class="pb-2 widget-title border-bottom">{{__("Follow Us")}}</h5>
                             <ul class="list-unstyled social-icon mt-3 mb-0">
-                                <li class="list-inline-item mb-0"><a href="https://www.facebook.com/profile.php?id=100095438919373" class="icon-sm"><span class="mdi mdi-facebook" style="font-size: 25px;"></span>
+                                <li class="list-inline-item mb-0"><a href="https://www.facebook.com/profile.php?id=100095438919373" class="icon-sm" style="background-color: #3b5998;"><span class="mdi mdi-facebook" style="font-size: 25px;"></span>
                                 </a></li>
-                                <li class="list-inline-item mb-0"><a href="https://www.linkedin.com/company/103106321/admin/feed/posts/" class="icon-sm"><span class="mdi mdi-linkedin" style="font-size: 25px;"></span>
+                                <li class="list-inline-item mb-0"><a href="https://www.linkedin.com/company/103106321/admin/feed/posts/" class="icon-sm" style="background-color: #0077B5;"><span class="mdi mdi-linkedin" style="font-size: 25px;"></span>
                                 </a></li>
-                                <li class="list-inline-item mb-0"><a href="https://t.me/siketbnk" class="icon-sm"><span class="mdi mdi-send-circle" style="font-size: 25px;"></span>
+                                <li class="list-inline-item mb-0"><a href="https://t.me/siketbnk" class="icon-sm" style="background-color: #0088cc;"><span class="mdi mdi-send-circle" style="font-size: 25px;"></span>
                                 </a></li>
-                                <li class="list-inline-item mb-0"><a href="#" class="icon-sm"><span class="mdi mdi-whatsapp" style="font-size: 25px;"></span>
-                                </a></li>
-                                <li class="list-inline-item mb-0"><a href="#" class="icon-sm"><span class="mdi mdi-youtube" style="font-size: 25px;"></span>
+                                <li class="list-inline-item mb-0"><a href="https://x.com/SiketBank" class="icon-sm" style="background-color: #fff;position:relative;top:7px"><img src="{{asset('assets/public/images/footer/twitter.png')}}" class="p-3" alt="">
                                 </a></li>
                             </ul>
                         </div>
@@ -95,9 +93,9 @@
                             <div class="mt-4">
                                 @foreach ($relatedNews as $related )
                                 <div class="clearfix post-recent">
-                                    <div class="post-recent-thumb float-start"> <a href="{{route('news-detail',['title'=>Str::slug($related->title)])}}"> <img alt="img"
+                                    <div class="post-recent-thumb float-start"> <a href="{{route('news-detail',['title'=>Str::slug($related->title)."-".$related->id])}}"> <img alt="img"
                                                 src="{{asset($related->file)}}" class="img-fluid rounded related-news-image"></a></div>
-                                    <div class="post-recent-content float-start"><a href="{{route('news-detail',['title'=>Str::slug($related->title)])}}">{{$related->title}}</a><span class="text-muted mt-2">{{Carbon\Carbon::parse($related->date_created)->toFormattedDateString()}}</span></div>
+                                    <div class="post-recent-content float-start"><a href="{{route('news-detail',['title'=>Str::slug($related->title)."-".$related->id])}}">{{$related->title}}</a><span class="text-muted mt-2">{{Carbon\Carbon::parse($related->date_created)->toFormattedDateString()}}</span></div>
                                 </div>
                                 @endforeach
                             </div>

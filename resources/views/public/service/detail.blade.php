@@ -11,7 +11,8 @@
                                 <h3 class="title-pager mb-0">{{ __('Product & Service') }}</h3>
                             </div>
                             <ul class="page-next text-center mt-4 pt-2">
-                                <li><a href="/" class="text-dark fs-6">Home</a></li>
+                                <li><a href="/" class="text-dark fs-6">{{ __('Home') }}</a></li>
+                                <li><a href="/product-service" class="text-dark fs-6">{{ __('Product & Service') }}</a></li>
                                 <li>
                                     <span class="text-primary fs-6">{{$product[0]->title}}</span>
                                 </li>
@@ -39,10 +40,21 @@
                     <!--end col-->
 
                     <div class="col-lg-7 col-md-7">
+                        @if(strlen($product[0]->description) > 1000)
                         <div class="about-content ms-lg-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
 
+                            {!!Str::substr($product[0]->description,0, 1000)!!}...
+                            <div class="my-3" id="service-read-more-btn">
+                                <button class="btn float-end">{{__("Read More")}}</button>
+                            </div>
+                        </div>
+                        @else
+                        <div class="about-content ms-lg-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
                             {!!$product[0]->description!!}
-
+                        </div>
+                        @endif
+                        <div class="about-content about-content-detail d-none ms-lg-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                            {!!$product[0]->description!!}
                         </div>
                     </div>
                     <!--end col-->

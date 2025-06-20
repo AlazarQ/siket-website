@@ -1,4 +1,8 @@
 @extends('layouts._public');
+@section('reCaptcha')
+<script async src="https://www.google.com/recaptcha/api.js"></script>
+
+@endsection
 @section('body')
 <section class="bg-default page-next-level" style="background: url(images/bg/bg-page.png) center no-repeat;margin-top: 50px;">
     <div class="home-center">
@@ -7,12 +11,12 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         <div class="text-center">
-                            <h3 class="title-pager mb-0">Get In Touch !</h3>
+                            <h3 class="title-pager mb-0">{{__("Contact Us")}}</h3>
                         </div>
                         <ul class="page-next text-center mt-4 pt-2">
-                            <li><a href="/" class="text-dark fs-6">Home</a></li>
+                            <li><a href="/" class="text-dark fs-6">{{__("Home")}}</a></li>
                             <li>
-                                <span class="text-primary fs-6">Contact Us</span>
+                                <span class="text-primary fs-6">{{__("Contact Us")}}</span>
                             </li>
                         </ul>
                     </div>
@@ -35,8 +39,8 @@
                         <i class="mdi mdi-phone d-block rounded-pill h5 mb-0"></i>
                     </div>
                     <div class="content mt-4">
-                        <h5 class="fw-bold">Phone</h5>
-                        <p class="mb-0 text-muted"><span class="fw-bold">Phone :</span> 8342</p>
+                        <h5 class="fw-bold">{{__("Phone")}}</h5>
+                        <p class="mb-0 text-muted"><span class="fw-bold">{{__("Phone")}} :</span> 8342</p>
                     </div>
                 </div>
             </div>
@@ -48,8 +52,8 @@
                         <i class="mdi mdi-email d-block rounded-pill h5 mb-0"></i>
                     </div>
                     <div class="content mt-4">
-                        <h5 class="fw-bold">Email</h5>
-                        <p class="mb-0 text-muted"><span class="fw-bold">E-mail :</span> info@siketbank.com</p>
+                        <h5 class="fw-bold">{{__("Email")}}</h5>
+                        <p class="mb-0 text-muted"><span class="fw-bold">{{__("E-mail")}} :</span> info@siketbank.com</p>
                     </div>
                 </div>
             </div>
@@ -61,8 +65,8 @@
                         <i class="mdi mdi-map-marker d-block rounded-pill h5 mb-0"></i>
                     </div>
                     <div class="content mt-4">
-                        <h5 class="fw-bold">Location</h5>
-                        <p class="mb-0 text-muted"><span class="fw-bold">Address :</span> Churchill Road, In front of Haron Tower, Addis Ababa, Ethiopia</p>
+                        <h5 class="fw-bold">{{__("Location")}}</h5>
+                        <p class="mb-0 text-muted"><span class="fw-bold">{{__("Address")}} :</span> {{__("Churchill Road, In front of Haron Tower, Addis Ababa, Ethiopia")}}</p>
 
                     </div>
                 </div>
@@ -97,11 +101,11 @@
                                     <hr>
                                     @endif
                                     <div class="col-12 mb-3">
-                                        <h4 class="">Drop us a message</h4>
+                                        <h4 class="">{{__("Drop us a message")}}</h4>
 
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label fs-6 mt-3 mb-1">Your Name <span
+                                        <label class="form-label fs-6 mt-3 mb-1">{{__("Your Name")}} <span
                                                 class="text-danger">*</span></label>
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-account icon-sm icons"></i>
@@ -115,7 +119,7 @@
 
                                     <div class="col-md-6">
 
-                                        <label class="form-label fs-6 mt-3 mb-1">Your Email <span
+                                        <label class="form-label fs-6 mt-3 mb-1">{{__("Your Email")}} <span
                                                 class="text-danger">*</span></label>
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-email-outline icon-sm icons"></i>
@@ -129,7 +133,7 @@
                                     <!--end col-->
 
                                     <div class="col-12">
-                                        <label class="form-label fs-6 mt-3 mb-1">Subject</label>
+                                        <label class="form-label fs-6 mt-3 mb-1">{{__("Subject")}}</label>
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-book-outline icon-sm icons"></i>
                                             <input name="subject" id="subject" class="form-control ps-5 fs-6 py-2"
@@ -142,7 +146,7 @@
                                     <!--end col-->
 
                                     <div class="col-12">
-                                        <label class="form-label fs-6 mt-3 mb-1">Message <span
+                                        <label class="form-label fs-6 mt-3 mb-1">{{__("Message")}} <span
                                                 class="text-danger">*</span></label>
                                         <div class="form-icon position-relative">
                                             <i class="mdi mdi-message-outline icon-sm icons"></i>
@@ -153,12 +157,12 @@
                                         <div class="input-error">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
                                 </div>
                                 <!-- end row -->
                                 <div class="row">
                                     <div class="col-12 fs-6 mt-3">
-                                        <button type="submit" id="submit" name="send" class="btn btn-primary">Send
-                                            Message</button>
+                                        <button type="submit" id="submit" name="send" class="btn btn-primary">{{__("Send")}}</button>
                                     </div>
                                     <!--end col-->
                                 </div>

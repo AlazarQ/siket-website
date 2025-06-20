@@ -1,6 +1,6 @@
 <div id="navigation">
     <!-- Navigation Menu-->
-    <ul class="navigation-menu nav-light nav-right">
+    <ul class="navigation-menu nav-light nav-right pt-2">
       <li class="has-submenu parent-parent-menu-item">
           <a href="javascript:void(0)">{{ __('About Us') }}</a
           ><span class="menu-arrow"></span>
@@ -46,27 +46,98 @@
       <li class="has-submenu parent-parent-menu-item">
         <a href="javascript:void(0)">{{ __('Product & Service') }}</a
         ><span class="menu-arrow"></span>
-        <ul class="submenu megamenu">
-        @foreach ($productCategory as $category )
-        <li>
-            <ul>
-              <li class="megamenu-head">
-                <strong>{{$category}}</strong>
-                <hr class="m-0" />
-              </li>
-             @foreach ($products as $product)
-             @if($product->subtype == $category)
-             <li>
-                <a href="{{route('product-detail',['id'=>$product->parent_id])}}" class="sub-menu-item"
-                  >{{$product->title}}</a
-                >
-              </li>
-              @endif
-             @endforeach
-            </ul>
-          </li>
-        @endforeach
-        </ul>
+        <div class="submenu megamenu px-3 py-3">
+            <div class="accordion" id="megamenu-accordion">
+                @foreach ($productCategory as $category)
+                @if($loop->index == 0)
+                <div class="accordion-item mb-3">
+                  <h2 class="accordion-header" id="heading{{$loop->index}}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->index}}" aria-expanded="true" aria-controls="collapse{{$loop->index}}">
+                     {{$category}}
+                    </button>
+                  </h2>
+                  @foreach ($products as $product)
+                  @if($product->subtype == $category)
+                  <div id="collapse{{$loop->parent->index}}" class="accordion-collapse collapse show" aria-labelledby="heading{{$loop->parent->index}}" data-bs-parent="#megamenu-accordion">
+                    <div class="accordion-body">
+                        <a href="{{route('product-detail',['title'=>Str::slug($product->title)."-".$product->parent_id])}}" class="sub-menu-item"
+                            ><i class="mdi mdi-arrow-right-bold-circle"></i> {{$product->title}}</a
+                          >                    </div>
+                  </div>
+                  @endif
+                  @endforeach
+                </div>
+                @else
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
+                        {{$category}}
+                      </button>
+                    </h2>
+                    @foreach ($products as $product)
+                    @if($product->subtype == $category)
+                    <div id="collapse{{$loop->parent->index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$loop->parent->index}}" data-bs-parent="#megamenu-accordion">
+                      <div class="accordion-body">
+                        <a href="{{route('product-detail',['title'=>Str::slug($product->title)."-".$product->parent_id])}}" class="sub-menu-item"
+                            ><i class="mdi mdi-arrow-right-bold-circle"></i> {{$product->title}}</a
+                          >                      </div>
+                    </div>
+                    @endif
+                    @endforeach
+                  </div>
+                @endif
+                @endforeach
+              </div>
+            <div class="d-flex align-items-start gap-3 w-100" id="megamenu-tab">
+                <div class="nav flex-column nav-pills me-3 sub-category-container" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    @foreach ($productCategory as $category)
+                    @if($loop->index == 0)
+                  <button class="nav-link active text-start" id="v-{{$loop->index}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{$loop->index}}" type="button" role="tab" aria-controls="v-pills-{{$loop->index}}" aria-selected="true">{{$category}}</button>
+                   @else
+                   <button class="nav-link text-start" id="v-{{$loop->index}}-tab" data-bs-toggle="pill" data-bs-target="#v-pills-{{$loop->index}}" type="button" role="tab" aria-controls="v-pills-{{$loop->index}}" aria-selected="true">{{$category}}</button>
+                    @endif
+                  @endforeach
+
+                </div>
+                <div class="tab-content w-100" id="v-pills-tabContent">
+                    @foreach ($productCategory as $category)
+                    @if($loop->index == 0)
+                    <div class="tab-pane fade show active" id="v-pills-{{$loop->index}}" role="tabpanel" aria-labelledby="v-pills-{{$loop->index}}-tab">
+                        <div class="row">
+                            @foreach ($products as $product)
+                            @if($product->subtype == $category)
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                <a href="{{route('product-detail',['title'=>Str::slug($product->title)."-".$product->parent_id])}}" class="sub-menu-item"
+                                    ><i class="mdi mdi-arrow-right-bold-circle"></i> {{$product->title}}</a
+                                  >
+                            </div>
+                            @endif
+                            @endforeach
+                        </div>
+                        </div>
+                    @else
+                    <div class="tab-pane fade" id="v-pills-{{$loop->index}}" role="tabpanel" aria-labelledby="v-pills-{{$loop->index}}-tab">
+                        <div class="row">
+                            @foreach ($products as $product)
+                            @if($product->subtype == $category)
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-2">
+                                <a href="{{route('product-detail',['title'=>Str::slug($product->title)."-".$product->parent_id])}}" class="sub-menu-item"
+                                    ><i class="mdi mdi-arrow-right-bold-circle"></i> {{$product->title}}</a
+                                  >
+                            </div>
+                            @endif
+                            @endforeach
+                        </div>
+                        </div>
+                    @endif
+                 @endforeach
+
+
+                </div>
+              </div>
+        </div>
       </li>
       <li class="has-submenu parent-parent-menu-item">
         <a href="javascript:void(0)">{{ __('Digital Banking') }} </a
@@ -112,6 +183,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('atm')}}" class="sub-menu-item">
+                        {{ __('ATM') }}
+                      </a>
+                  </li>
+                <li>
                   <a href="{{route('loan-calculator')}}" class="sub-menu-item">
                       {{ __('Loan Calculator') }}
                     </a>
@@ -135,6 +211,12 @@
                 <li>
                   <a href="{{route('faq')}}" class="sub-menu-item">
                       {{ __('FAQ') }}
+                    </a>
+                </li>
+                <li>
+                 
+                  <a href="{{route('terms-and-tariff')}}" class="sub-menu-item">
+                      {{ __('Terms and Tariff') }}
                     </a>
                 </li>
               </ul>

@@ -2,21 +2,23 @@
 <html lang="{{App::getLocale()}}">
   <head>
     <meta charset="utf-8" />
-    <title>Siket Bank | Welcome To Siket Bank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Premium Bootstrap 5 Landing Page Template"
-    />
-    <meta
-      name="keywords"
-      content="Siket Bank, Bank In Ethiopia, Bank In Addis Ababa, Banks"
-    />
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
     <meta name="website" content="https://siketbank.com" />
     <meta name="email" content="siketbank.com" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JXEPE63K1L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-JXEPE63K1L');
+</script>
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="{{asset('assets/public/images/favicon.png')}}">
+    <link rel="icon" href="{{asset('favicon.ico')}}">
     <!-- BOOTSTRAP -->
     <link href="{{asset('assets/public/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- ICON -->
@@ -28,7 +30,9 @@
     <link href="{{asset('assets/public/css/style.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/public/css/colors/default.css')}}" rel="stylesheet" id="color-opt" />
     <link href="{{asset('assets/public/css/swiper-bundle.min.css')}}" rel="stylesheet" />
+
     @yield('css')
+    @yield('reCaptcha')
   </head>
 
   <body>
@@ -49,37 +53,60 @@
             </li>
            <li class="list-inline-item text-white   hidden-sm"> |</li>
            <li class="list-inline-item mb-0  hidden-sm">
-            <a href="https://www.facebook.com/profile.php?id=100095438919373" class="rounded icon-sm header-icon"
+            <a href="https://www.facebook.com/profile.php?id=100095438919373" class="rounded icon-sm header-icon" style="background-color: #3b5998;"
               ><i data-feather="facebook" class="fea icon-sm" style="color:#fff"></i
             ></a>
           </li>
 
           <li class="list-inline-item mb-0  hidden-sm">
-            <a href="https://www.linkedin.com/company/103106321/admin/feed/posts/" class="rounded icon-sm header-icon"
+            <a href="https://www.linkedin.com/company/103106321/admin/feed/posts/" class="rounded icon-sm header-icon" style="background-color: #0077B5;"
               ><i data-feather="linkedin" class="fea icon-sm" style="color:#fff"></i
             ></a>
           </li>
           <li class="list-inline-item mb-0  hidden-sm">
-            <a href="https://t.me/siketbnk" class="rounded icon-sm header-icon"
+            <a href="https://t.me/siketbnk" class="rounded icon-sm header-icon" style="background-color: #0088cc;"
               ><i data-feather="send" class="fea icon-sm" style="color:#fff"></i
             ></a>
           </li>
-          <li class="list-inline-item mb-0  hidden-sm">
-            <a href="#" class="rounded icon-sm header-icon"
-              ><i data-feather="youtube" class="fea icon-sm" style="color:#fff"></i
-            ></a>
+          <li class="list-inline-item mb-0  hidden-sm" >
+            <a href="https://x.com/SiketBank" class="rounded icon-sm header-icon" style="background-color: #fff;position:relative;top:3px"
+              ><img src="{{asset('assets/public/images/footer/twitter.png')}}" class="p-3" alt=""></a>
           </li>
-          <li class="list-inline-item mb-0  hidden-sm" style="position:relative;top:-4px;">
-            <a href="#" class="rounded icon-sm header-icon"
-              ><span class="mdi mdi-whatsapp" style="font-size: 14px"></span>
-            </a>
-          </li>
+
           <li class="list-inline-item text-white  hidden-sm"> |</li>
 
             <li class="list-inline-item  hidden-sm">
               <a href="{{route('vacancy')}}"><span class="mdi mdi-briefcase-account-outline" style="font-size: 16"> {{ __('Vacancy') }}</span>
               </a>
             </li>
+            <li class="list-inline-item">
+                <button type="button" class="btn btn-primary" id="search-btn">
+                    <span class="mdi mdi-magnify" style="font-size: 16"> <span class="hidden-sm">{{ __('Search') }}</span></span>
+                </button>
+              </li>
+              <div class="row d-none" id="search-container">
+                <div class="col-lg-4 col-md-6 col-sm-12" style="margin-left: auto;">
+                        <form class="py-1" action="/search" method="GET">
+
+                            <div class="input-group">
+                                <input
+                                type="text"
+                                id="text"
+                                name="term"
+                                class="form-control border bg-white"
+                                placeholder="Search..."
+                                style="height:40px;"
+                              />
+                              <div class="input-group-append">
+                                <button type="button" class="btn btn-primary" id="close-search-btn" style="height: 40px;">
+                                    <span class="mdi mdi-close-circle" style="font-size: 20px;position: relative;top:-5px;"></span>
+                                </button>
+
+                              </div>
+                              </div>
+                        </form>
+                </div>
+              </div>
 
 
           </ul>
@@ -92,8 +119,8 @@
         <!-- Logo container-->
         <a class="logo" href="/">
           <span class="logo-light-mode">
-            <img src="{{asset('assets/public/images/logo.jpg')}}" class="l-dark" alt="" width="100" />
-            <img src="{{asset('assets/public/images/logo.jpg')}}" class="l-light" alt="" width="100" />
+            <img src="{{asset('assets/public/images/siketbank-logo.png')}}" class="l-dark" alt="" width="150" />
+            <img src="{{asset('assets/public/images/siketbank-logo.png')}}" class="l-light" alt="" width="150" />
           </span>
         </a>
         <!-- End Logo container-->
@@ -111,40 +138,7 @@
           </div>
         </div>
 
-        <ul class="buy-button list-inline mb-0">
-          <li class="list-inline-item search-icon mb-0">
-            <div class="dropdown">
-              <button
-                type="button"
-                class="btn btn-link text-decoration-none dropdown-toggle mb-0 p-0"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i
-                  class="uil uil-search h5 text-dark nav-light-icon-dark mb-0"
-                ></i>
-                <i
-                  class="uil uil-search h5 text-white nav-light-icon-white mb-0"
-                ></i>
-              </button>
-              <div
-                class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-4 py-0"
-                style="width: 300px"
-              >
-                <form class="p-4">
-                  <input
-                    type="text"
-                    id="text"
-                    name="name"
-                    class="form-control border bg-white"
-                    placeholder="Search..."
-                  />
-                </form>
-              </div>
-            </div>
-          </li>
-        </ul>
+
 
 
        {{App\Http\Controllers\Public\HeaderController::header();}}
@@ -250,6 +244,22 @@
   },
 
 });
+     </script>
+     <script>
+        $(document).ready(function(){
+            $("#search-btn").click(function(){
+                if($("#search-container").css('display') == 'none'){
+                    $("#search-container").removeClass("d-none");
+                }else{
+                    $("#search-container").addClass("d-none");
+
+                }
+            });
+            $("#close-search-btn").click(function(){
+                $("#search-container").addClass("d-none");
+            });
+            close-search-btn
+        })
      </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
